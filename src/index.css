@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+
+:root{
+  --Louge-color:#6C49F8;
+  --font-family:Catamaran;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0.8; }
+  50% { transform: translateY(-15px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
