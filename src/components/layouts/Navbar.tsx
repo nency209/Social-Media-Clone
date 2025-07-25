@@ -7,7 +7,7 @@ export const Navbar = () => {
       <Link to="/" className="flex items-center gap-2 text-xl font-bold">
         <img src="/social-clone.png" alt="logo" className="w-8 h-8 rounded-full" />
         <p>
-          My<span className="text-purple-400">Social</span>
+          My<span className="text-[var(--Louge-color)] ">Social</span>
         </p>
       </Link>
 
@@ -24,7 +24,7 @@ export const Navbar = () => {
         </Link>
         <Link
           to="/signup"
-          className="bg-purple-600 hover:bg-purple-500 text-white py-1 px-4 rounded-full"
+          className="bg-[var(--Louge-color)]  hover:bg-purple-500 text-white py-1 px-4 rounded-full"
         >
           Sign Up
         </Link>

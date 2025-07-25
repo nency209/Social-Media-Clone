@@ -1,6 +1,8 @@
+import { Link } from "react-router";
+
 export const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#3a0436] to-[#000000] text-white mt-12">
+    <footer className="bg-gradient-to-b from-[#3a0436] to-[#000000] text-white">
       <div className="max-w-screen-xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
         
         <div>
@@ -13,7 +15,7 @@ export const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
           <ul className="space-y-1 text-sm">
-            <li><a href="/" className="hover:underline">Home</a></li>
+            <li><Link to={''} className="hover:underline">Home</Link></li>
             <li><a href="/about" className="hover:underline">About</a></li>
             <li><a href="/roadmap" className="hover:underline">Roadmap</a></li>
             <li><a href="/help" className="hover:underline">Help</a></li>

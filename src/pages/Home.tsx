@@ -1,5 +1,5 @@
-import { Navbar } from "./Navbar";
-import{Footer} from './Footer'
+
+
 
 export const Home = () => {
 
@@ -53,10 +53,10 @@ export const Home = () => {
   
   return (
     <>
-      <Navbar />
+    
       <div className="bg-gradient-to-r from-[#580A55] to-[#020202] text-white min-h-screen">
         {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 p-16">
+        <div className="grid grid-cols-2 lg:grid-cols-2 p-16">
           <div className="space-y-6">
             <h1 className="font-semibold text-5xl">Your Digital Social Lounge</h1>
             <p className="text-lg">
@@ -158,7 +158,7 @@ export const Home = () => {
           </button>
         </div>
       </div>
-      <Footer/>
+      
     </>
   );
 };
