@@ -9,12 +9,14 @@ export const Signup = () => {
   const navigate = useNavigate();
 
   const initialValues = {
+    username:'',
     email: "",
     password: "",
     confirmPassword: "",
   };
 
   const validationSchema = Yup.object({
+    name: Yup.string().required("Required").min(6,"username at least must be 4 character"),
     email: Yup.string().email("Invalid email").required("Required"),
     password: Yup.string().min(6, "Minimum 6 characters").required("Required"),
     confirmPassword: Yup.string()
@@ -24,7 +26,7 @@ export const Signup = () => {
   // values: typeofinitialValues
   const handleSubmit = async (values: typeof initialValues) => {
     try {
-      await Signuser(values.email, values.password);
+      await Signuser(values.username,values.email,values.password);
       toast.success("signup successfully");
       navigate("/login"); // or homepage
     } catch (error: any) {
@@ -64,6 +66,17 @@ export const Signup = () => {
           >
             <Form className="space-y-4">
               <div>
+              <label htmlFor='username' className="block mb-1">
+                Username
+                </label>
+                <Field type='text' name='username'   className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600"/>
+                <ErrorMessage
+                  name="email"
+                  component="p"
+                  className="text-red-500 text-sm mt-1"
+                />
+                </div>
+                <div>
                 <label htmlFor="email" className="block mb-1">
                   Email
                 </label>

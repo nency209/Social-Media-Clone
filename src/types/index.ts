@@ -1,11 +1,9 @@
-export interface PostType {
+export interface Post {
   id: string;
   userId: string;
-  username: string;
-  avatar: string;
-  text: string;
-  mediaUrl?: string;
+  content: string;
+  imageUrl?: string;
   createdAt: string;
-  likes: string[]; // userIds who liked
-  commentCount: number;
+  likes: string[]; // user IDs
+  commentsCount: number;
 }

@@ -10,13 +10,14 @@ export const Loginuser=async(email:string,password:string)=>
   return res.user
 }
 
-export const Signuser=async(email:string,password:string)=>
+export const Signuser=async(username:string,email:string,password:string)=>
 {
       const res = await createUserWithEmailAndPassword(auth,email,password);
       const user=res.user;
 
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
+        username:username,
         createdAt: new Date(),
       });
 

@@ -19,24 +19,35 @@ export const Login = () => {
     password: Yup.string().min(6, "Minimum 6 characters").required("Required"),
   });
 
-  const handleSubmit = async (values: typeof initialValues) => {
-    try {
-      const user=await Loginuser(values.email,values.password)
-      const docref=doc(db,'users',user.uid)
-      const docsnap=await getDoc(docref)
-      if (docsnap.exists()) {
+const handleSubmit = async (values: typeof initialValues) => {
+  try {
+    const user = await Loginuser(values.email, values.password);
+
+    // Get user profile document from Firestore
+    const docRef = doc(db, 'users', user.uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      toast.success("Login successful");
       navigate("/dashboard");
-    } else {
-      toast.error("Account not found , please sign up first.");
-      navigate("/signup");
-    }
-      // or homepage
-    } catch (error)
-         {
-          console.log("something wrong",error)
-          toast.error("Signup failed. Try again later.");
-        }
-  };
+    } 
+
+  } catch (error: any) {
+  console.error("Login Error:", error.code);
+
+  if (error.code === "auth/invalid-credential") {
+    toast.error("Please sign up first.or password not match");
+    // navigate("/signup");
+  } else if (error.code === "auth/wrong-password") {
+    toast.error("Wrong password. Please try again.");
+  } else if (error.code === "auth/invalid-email") {
+    toast.error("Invalid email address.");
+  }  else {
+    toast.error("Login failed. Try again later.");
+  }
+}
+};
+
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#580A55] to-black text-white">

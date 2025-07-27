@@ -21,13 +21,13 @@ export const Sidebar = () => {
 
       <ul className="space-y-6 text-sm md:text-base">
         {[
-          { label: "Home", icon: <IoHomeOutline />, path: "/dashboard" },
-          { label: "Explore", icon: <IoSearchOutline />, path: "/explore" },
-          { label: "Create Post", icon: <IoCreateOutline />, path: "/create-post" },
-          { label: "Messages", icon: <IoChatbubbleEllipsesOutline />, path: "/messages" },
-          { label: "Notifications", icon: <IoNotificationsOutline />, path: "/notifications" },
-          { label: "Profile", icon: <IoPersonOutline />, path: "/profile" },
-          { label: "Settings", icon: <IoSettingsOutline />, path: "/settings" },
+{ label: "Home", icon: <IoHomeOutline />, path: "/dashboard" },
+  { label: "Explore", icon: <IoSearchOutline />, path: "/dashboard/homefeed" },
+  { label: "Create Post", icon: <IoCreateOutline />, path: "/dashboard/create-post" },
+  { label: "Messages", icon: <IoChatbubbleEllipsesOutline />, path: "/dashboard/messages" },
+  { label: "Notifications", icon: <IoNotificationsOutline />, path: "/dashboard/notifications" },
+  { label: "Profile", icon: <IoPersonOutline />, path: "/dashboard/profile" },
+  { label: "Settings", icon: <IoSettingsOutline />, path: "/dashboard/settings" },
         ].map(({ label, icon, path }) => (
           <li key={label}>
             <Link to={path} className="flex items-center gap-3 hover:text-purple-400 transition">

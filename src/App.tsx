@@ -5,6 +5,8 @@ import { MainLayout } from "./layouts/mainlayout";
 import { Home } from "./pages/Home";
 import { Dashboardlayout } from "./layouts/dashboardlayout";
 import { Dashboard } from "./pages/dashboard/Dashboardhome";
+import { HomeFeed } from "./pages/dashboard/HomeFedd";
+import { CreatePost} from "./pages/dashboard/CreatePostForm";
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboardlayout/>}>
           <Route index element={<Dashboard/>}/>
+          <Route path="homefeed" element={<HomeFeed/>}/>
+          <Route path="create-post" element={<CreatePost />} />
+
         </Route>
       </Routes>
     </>
