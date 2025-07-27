@@ -3,8 +3,8 @@ import * as Yup from "yup";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
 import { doc, getDoc } from "firebase/firestore";
-import { Loginuser } from "../../firebase/auth";
-import {db} from '../../firebase/config'
+import { Loginuser } from "../../services/auth";
+import {db} from '../../services/config'
 
 export const Login = () => {
   const navigate = useNavigate();

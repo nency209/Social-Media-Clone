@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword,createUserWithEmailAndPassword ,GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
-import {auth,db} from '../firebase/config'
+import {auth,db} from '../services/config'
 import { doc, setDoc ,getDoc} from "firebase/firestore";
 
 

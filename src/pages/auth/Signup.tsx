@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router";
-import { Signuser, signwithgoogle } from "../../firebase/auth";
+import { Signuser, signwithgoogle } from "../../services/auth";
 
 export const Signup = () => {
   const navigate = useNavigate();
