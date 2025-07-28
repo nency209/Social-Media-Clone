@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchPosts } from "./postsThunks";
-import type { Post } from "../types"; // if your file is at same level
+import type { Post } from "../../types"; 
 
 
 interface PostsState {

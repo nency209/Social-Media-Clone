@@ -7,6 +7,9 @@ import { Dashboardlayout } from "./layouts/dashboardlayout";
 import { Dashboard } from "./pages/dashboard/Dashboardhome";
 import { HomeFeed } from "./pages/dashboard/HomeFedd";
 import { CreatePost} from "./pages/dashboard/CreatePostForm";
+import { Notifications } from "./pages/dashboard/Notification";
+import { ProfilePage } from "./pages/dashboard/profilepage";
+import { EditProfile } from "./pages/dashboard/editprofile";
 
 function App() {
   return (
@@ -22,7 +25,9 @@ function App() {
           <Route index element={<Dashboard/>}/>
           <Route path="homefeed" element={<HomeFeed/>}/>
           <Route path="create-post" element={<CreatePost />} />
-
+          <Route path="notifications" element={<Notifications/>} />
+          <Route path="profile/:uid" element={<ProfilePage/>} />
+          <Route path="/dashboard/profile/:uid/edit" element={<EditProfile/>} />
         </Route>
       </Routes>
     </>

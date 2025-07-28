@@ -1,15 +1,37 @@
 import { GiPostStamp } from "react-icons/gi";
+import { useEffect, useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { IoPerson } from "react-icons/io5";
 import { EngagementBarChart } from "../../components/charts/chart";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth ,db} from "../../services/config";
+import { doc, getDoc } from "firebase/firestore";
 
 export const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [userData, setUserData] = useState<{ username: string } | null>(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      if (user) {
+        const docRef = doc(db, "users", user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          setUserData(docSnap.data() as { username: string });
+        }
+      }
+    };
+
+    fetchUserData();
+  }, [user]);
+
   return (
     <div className="text-white">
 
-      <h1 className="text-2xl font-bold mb-1">Welcome Back, @nency 👋</h1>
-      <p className="text-sm text-purple-300 mb-6">Here's what's happening today on UniLounge.</p>
+      <h1 className="text-2xl font-bold mb-1"> Welcome Back, @{userData?.username ?? "Loading..."} 👋</h1>
+      <p className="text-sm text-[var(--Louge-color)]  mb-6">Here's what's happening today on UniLounge.</p>
 
       {/* Stats Cards */}
       <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-4 px-4">
@@ -54,10 +76,10 @@ export const Dashboard = () => {
         <div className="bg-[#1c1b1b] p-4 rounded-lg">
           <h2 className="text-lg font-semibold mb-2">Active Users</h2>
           <div className="grid grid-cols-5 gap-3">
-            {[...Array(10)].map((_, i) => (
+            {[...Array(11)].map((_, i) => (
               <img
                 key={i}
-                src={`https://i.pravatar.cc/150?img=${i + 20}`}
+                src={`https://i.pravatar.cc/150?img=${i}`}
                 alt="user"
                 className="w-10 h-10 rounded-full border-2 border-green-500"
               />

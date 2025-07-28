@@ -1,9 +1,12 @@
 export interface Post {
   id: string;
-  userId: string;
-  content: string;
+  userId?: string;
+  content?: string;
   imageUrl?: string;
-  createdAt: string;
-  likes: string[]; // user IDs
-  commentsCount: number;
+  createdAt?: string;
+  caption?: string;
+  username?: string;
+  avatarUrl?: string;
+  likes?: string[] ;
+  commentsCount?: number;
 }

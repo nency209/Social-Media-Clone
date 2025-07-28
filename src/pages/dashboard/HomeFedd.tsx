@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../../app/store";
-import { fetchPosts } from "../../features/posts/postsThunks";
+import { fetchPosts } from "../../Features/post/postsThunks";
 import { PostCard } from "../../components/posts/PostCard";
 
 export const HomeFeed = () => {

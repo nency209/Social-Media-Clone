@@ -1,4 +1,4 @@
-import { signInWithEmailAndPassword,createUserWithEmailAndPassword ,GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword,createUserWithEmailAndPassword ,GoogleAuthProvider, signInWithPopup,} from "firebase/auth";
 import {auth,db} from '../services/config'
 import { doc, setDoc ,getDoc} from "firebase/firestore";
 
@@ -45,7 +45,3 @@ export const signwithgoogle=async ()=>
           return User;
 }
 
-export const logout=()=>
-{
-    signOut(auth)
-}

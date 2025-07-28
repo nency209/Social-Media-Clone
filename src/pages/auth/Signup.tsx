@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { FcGoogle } from "react-icons/fc";
@@ -9,16 +10,24 @@ export const Signup = () => {
   const navigate = useNavigate();
 
   const initialValues = {
-    username:'',
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
   };
 
   const validationSchema = Yup.object({
-    name: Yup.string().required("Required").min(6,"username at least must be 4 character"),
+    username: Yup.string()
+      .required("Required")
+      .min(6, "username at least must be 4 character"),
     email: Yup.string().email("Invalid email").required("Required"),
-    password: Yup.string().min(6, "Minimum 6 characters").required("Required"),
+    password: Yup.string()
+      .min(8, "Minimum 8 characters")
+      .matches(/[A-Z]/, "At least one uppercase letter")
+      .matches(/[a-z]/, "At least one lowercase letter")
+      .matches(/[0-9]/, "At least one number")
+      .matches(/[!@#$%^&*(),.?":{}|<>]/, "At least one special character")
+      .required("Required"),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Confirm your password"),
@@ -26,9 +35,12 @@ export const Signup = () => {
   // values: typeofinitialValues
   const handleSubmit = async (values: typeof initialValues) => {
     try {
-      await Signuser(values.username,values.email,values.password);
+      await Signuser(values.username, values.email, values.password);
       toast.success("signup successfully");
-      navigate("/login"); // or homepage
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000);
+      // or homepage
     } catch (error: any) {
       if (error.code === "auth/email-already-in-use") {
         toast.error("email is already exits. Try again later.");
@@ -40,9 +52,8 @@ export const Signup = () => {
   };
 
   const signinwithgoogle = async () => {
-    
     try {
-      await signwithgoogle()
+      await signwithgoogle();
       toast.success("Signed in with Google");
       navigate("/dashboard");
     } catch (error) {
@@ -53,7 +64,6 @@ export const Signup = () => {
 
   return (
     <>
- 
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#580A55] to-black text-white">
         <div className="w-full max-w-md bg-black bg-opacity-60 rounded-xl p-8 shadow-lg">
           <h2 className="text-2xl font-semibold mb-6 text-center">
@@ -66,17 +76,21 @@ export const Signup = () => {
           >
             <Form className="space-y-4">
               <div>
-              <label htmlFor='username' className="block mb-1">
-                Username
+                <label htmlFor="username" className="block mb-1">
+                  Username
                 </label>
-                <Field type='text' name='username'   className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600"/>
+                <Field
+                  type="text"
+                  name="username"
+                  className="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600"
+                />
                 <ErrorMessage
                   name="email"
                   component="p"
                   className="text-red-500 text-sm mt-1"
                 />
-                </div>
-                <div>
+              </div>
+              <div>
                 <label htmlFor="email" className="block mb-1">
                   Email
                 </label>

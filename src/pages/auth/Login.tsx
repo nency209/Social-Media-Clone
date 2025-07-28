@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router";
@@ -16,7 +17,12 @@ export const Login = () => {
 
   const validationSchema = Yup.object({
     email: Yup.string().email("Invalid email").required("Required"),
-    password: Yup.string().min(6, "Minimum 6 characters").required("Required"),
+    password: Yup.string().min(8, "Minimum 8 characters")
+      .matches(/[A-Z]/, "At least one uppercase letter")
+      .matches(/[a-z]/, "At least one lowercase letter")
+      .matches(/[0-9]/, "At least one number")
+      .matches(/[!@#$%^&*(),.?":{}|<>]/, "At least one special character")
+      .required("Required"),
   });
 
 const handleSubmit = async (values: typeof initialValues) => {
@@ -29,20 +35,20 @@ const handleSubmit = async (values: typeof initialValues) => {
 
     if (docSnap.exists()) {
       toast.success("Login successful");
-      navigate("/dashboard");
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+      
     } 
 
   } catch (error: any) {
   console.error("Login Error:", error.code);
 
   if (error.code === "auth/invalid-credential") {
-    toast.error("Please sign up first.or password not match");
+    toast.error("Please sign up first or Wrong password");
     // navigate("/signup");
-  } else if (error.code === "auth/wrong-password") {
-    toast.error("Wrong password. Please try again.");
-  } else if (error.code === "auth/invalid-email") {
-    toast.error("Invalid email address.");
-  }  else {
+  } 
+   else {
     toast.error("Login failed. Try again later.");
   }
 }
