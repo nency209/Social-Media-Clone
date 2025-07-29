@@ -27,6 +27,8 @@ const [likesCount, setLikesCount] = useState(post.likes?.length ?? 0);
   setIsLiked(!isLiked);
 };
 
+
+
   return (
     <div className="bg-zinc-900 p-4 rounded-xl mb-4 text-white shadow-lg">
       {/* User Info */}

@@ -2,6 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../../services/config";
 import type { Post } from "../../types";
+import { deletePost } from "../../services/Postservice";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async () => {
   const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
@@ -23,3 +24,18 @@ snapshot.forEach((doc) => {
 
   return posts;
 });
+
+
+
+
+export const deletePostThunk = createAsyncThunk(
+  "posts/deletePost",
+  async (postId: string, { rejectWithValue }) => {
+    try {
+      await deletePost(postId);
+      return postId;
+    } catch (error) {
+      return rejectWithValue(`Failed to delete post ${error}`);
+    }
+  }
+);

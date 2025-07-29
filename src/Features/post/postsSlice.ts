@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPosts } from "./postsThunks";
+import { fetchPosts ,deletePostThunk} from "./postsThunks";
 import type { Post } from "../../types"; 
+
 
 
 interface PostsState {
@@ -32,7 +33,10 @@ const postsSlice = createSlice({
       .addCase(fetchPosts.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch posts";
-      });
+      })
+      .addCase(deletePostThunk.fulfilled, (state, action) => {
+      state.data = state.data.filter((post) => post.id !== action.payload);
+    });
   },
 });
 

@@ -1,5 +1,5 @@
 import {
-  doc,
+  doc, deleteDoc,
   updateDoc,
   arrayUnion,
   arrayRemove,
@@ -22,7 +22,7 @@ export const likePost = async (
   });
 
   if (userId !== ownerId) {
-    // ✅ Store under correct path: users/{ownerId}/notifications
+
     const notifRef = collection(db, "users", ownerId, "notifications");
 
     await addDoc(notifRef, {
@@ -42,4 +42,17 @@ export const unlikePost = async (postId: string, userId: string) => {
   await updateDoc(postRef, {
     likes: arrayRemove(userId),
   });
+};
+
+
+
+
+export const deletePost = async (postId: string) => {
+  try {
+    const postRef = doc(db, "posts", postId);
+    await deleteDoc(postRef);
+  } catch (error) {
+    console.error("Error deleting post:", error);
+    throw error;
+  }
 };

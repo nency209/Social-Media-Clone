@@ -57,7 +57,7 @@ const handleSubmit = async (values: typeof initialValues) => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#580A55] to-black text-white">
-      <div className="w-full max-w-md bg-black bg-opacity-60 rounded-xl p-8 shadow-lg">
+      <div className="w-full max-w-md bg-black bg-opacity-80 rounded-xl p-8  shadow-lg ">
         <h2 className="text-2xl font-semibold mb-6 text-center">Login to UniLounge</h2>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
           <Form className="space-y-4">

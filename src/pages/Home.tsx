@@ -75,7 +75,7 @@ export const Home = () => {
 
         {/* How it Works */}
         <div className="relative bg-gradient-to-r from-[#580A55] to-[#020202] py-16 px-8 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
+          {[...Array(35)].map((_, i) => (
             <div
               key={i}
               className="absolute bg-[var(--Louge-color)] rounded-full animate-float"
@@ -95,7 +95,7 @@ export const Home = () => {
             What You Can Do on Uni<span className="text-[var(--Louge-color)]">Lounge</span>
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 mt-12 relative z-10 px-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-10 mt-12 relative z-10 px-16">
             {Works.map((item, i) => (
               <div
                 key={i}
