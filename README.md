@@ -24,5 +24,12 @@ UniLounge is a modern social media clone built with **React**, **Redux Toolkit**
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/your-username/zynkly.git
-   cd zynkly
+   git clone https://github.com/nency209/Social-Media-Clone.git
+   cd Social-Media-Clone
+   npm install
+   npm run dev
+
+   ## 📝 License
+
+
+
