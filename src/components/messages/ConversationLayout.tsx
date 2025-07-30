@@ -20,13 +20,17 @@ export const ConversationLayout = () => {
   };
 
   return (
-    <div className="flex h-[calc(100vh-4rem)]">
+    <div className="flex flex-col lg:flex-row h-screen">
+       <div className="w-full lg:max-w-sm border-b lg:border-b-0 lg:border-r border-gray-700 overflow-y-auto">
       <AllUsersList onSelect={handleSelect} />
+          </div>
       {conversationId ? (
+           <div className="flex flex-col flex-1 h-full">
         <ChatWindow
           conversationId={conversationId}
           currentUserId={user?.uid || ""}
         />
+        </div>
       ) : (
         <div className="flex-1 flex items-center justify-center text-white text-xl">
          <button className="bg-white rounded-md p-4 text-center text-[var(--Louge-color)]">Select a user to start chatting</button> 
@@ -35,3 +39,4 @@ export const ConversationLayout = () => {
     </div>
   );
 };
+

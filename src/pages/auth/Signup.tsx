@@ -39,7 +39,7 @@ export const Signup = () => {
       toast.success("signup successfully");
       setTimeout(() => {
         navigate("/login");
-      }, 1000);
+      },1500);
       // or homepage
     } catch (error: any) {
       if (error.code === "auth/email-already-in-use") {

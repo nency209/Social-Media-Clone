@@ -33,7 +33,7 @@ const [likesCount, setLikesCount] = useState(post.likes?.length ?? 0);
     <div className="bg-zinc-900 p-4 rounded-xl mb-4 text-white shadow-lg">
       {/* User Info */}
       <div className="flex items-center gap-3 mb-2">
-        <img src={post.avatarUrl || "/default-avatar.png"} alt={post.username} className="w-10 h-10 rounded-full" />
+        <img src='/public/user.png' alt={post.username} className="w-10 h-10 rounded-full" />
         <div>
           <p className="font-semibold">@{post.username}</p>
           <p className="text-xs text-gray-400">{post.createdAt ? (post.createdAt as any)?.toDate?.()?.toLocaleString?.() ?? "Unknown date" : "Unknown date"}</p>

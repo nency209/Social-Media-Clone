@@ -25,17 +25,17 @@ export const AllUsersList = ({ onSelect }: { onSelect: (user: User) => void }) =
   }, []);
 
   return (
-    <div className="w-64 border-r border-gray-700 overflow-y-auto">
-      <h2 className="text-white text-xl p-4">Users</h2>
-      {users.map((user) => (
-        <div
-          key={user.uid}
-          className="p-3 hover:bg-[var(--Louge-color)] text-white cursor-pointer"
-          onClick={() => onSelect(user)}
-        >
-          @{user.username}
-        </div>
-      ))}
-    </div>
+    <div className="w-full lg:max-w-sm border-b lg:border-b-0 lg:border-r border-gray-700 overflow-y-auto">
+    <h2 className="text-white text-xl p-4">Users</h2>
+    {users.map((user) => (
+      <div
+        key={user.uid}
+        className="p-3 hover:bg-[var(--Louge-color)] text-white cursor-pointer"
+        onClick={() => onSelect(user)}
+      >
+        @{user.username}
+      </div>
+    ))}
+  </div>
   );
 };

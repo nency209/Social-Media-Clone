@@ -9,7 +9,6 @@ import {
   IoSettingsOutline,
   IoChatbubbleEllipsesOutline,
 } from "react-icons/io5";
-
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 
 export const Sidebar = () => {
@@ -17,7 +16,7 @@ export const Sidebar = () => {
   const navigate = useNavigate();
 
   const menuItems = [
-    { label: "Dashboard", icon: < MdOutlineDashboardCustomize/>, path: "/dashboard" },
+    { label: "Dashboard", icon: <MdOutlineDashboardCustomize />, path: "/dashboard" },
     { label: "Home", icon: <IoHomeOutline />, path: "/dashboard/homefeed" },
     { label: "Create Post", icon: <IoCreateOutline />, path: "/dashboard/create-post" },
     { label: "Messages", icon: <IoChatbubbleEllipsesOutline />, path: "/dashboard/messages" },
@@ -33,11 +32,11 @@ export const Sidebar = () => {
   ];
 
   return (
-    <nav className="w-full h-full px-4 py-6 bg-gradient-to-t from-[#3a0436] to-[#000000]">
-      <Link to="/" className="flex items-center gap-2 mb-8">
-        <img src="/social-clone.png" alt="logo" className="w-8 h-8 rounded-full" />
-        <h1 className="text-xl font-bold">
-          My<span className="text-[var(--Louge-color)]">Social</span>
+    <nav className="w-full h-full px-2 py-4 sm:px-4 sm:py-6 bg-gradient-to-t from-[#3a0436] to-[#000000]">
+      <Link to="/" className="flex items-center gap-2 mb-6 sm:mb-8">
+        <img src="/public/ChatGPT Image Jul 30, 2025, 10_46_48 AM.png" alt="logo" className="w-8 h-8 rounded-full" />
+        <h1 className="text-xl font-bold hidden sm:block">
+        Uni<span className="text-[var(--Louge-color)]">Lounge</span>
         </h1>
       </Link>
 
@@ -47,18 +46,18 @@ export const Sidebar = () => {
             {path ? (
               <Link
                 to={path}
-                className="flex items-center gap-3 hover:text-[var(--Louge-color)] transition"
+                className="flex items-center gap-3 justify-center sm:justify-start hover:text-[var(--Louge-color)] transition"
               >
                 {icon}
-                <span>{label}</span>
+                <span className="hidden sm:inline">{label}</span>
               </Link>
             ) : (
               <button
                 onClick={onClick}
-                className="flex items-center gap-3 hover:text-[var(--Louge-color)] transition w-full text-left"
+                className="flex items-center gap-3 justify-center sm:justify-start hover:text-[var(--Louge-color)] transition w-full text-left"
               >
                 {icon}
-                <span>{label}</span>
+                <span className="hidden sm:inline">{label}</span>
               </button>
             )}
           </li>

@@ -25,16 +25,16 @@ export const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-2">Connect</h3>
           <ul className="space-y-1 text-sm">
-            <li>Email: <a href="mailto:support@unilounge.com" className="hover:underline">support@unilounge.com</a></li>
-            <li>Instagram: <a href="https://instagram.com/unilounge" className="hover:underline">@unilounge</a></li>
-            <li>Twitter: <a href="https://twitter.com/unilounge" className="hover:underline">@unilounge</a></li>
+            <li>Email: <a href="mailto:support@unilounge.com" className="hover:underline">support@Lounge.com</a></li>
+            <li>Instagram: <a href="#" className="hover:underline">@Lounge</a></li>
+            <li>Twitter: <a href="#" className="hover:underline">@Lounge</a></li>
           </ul>
         </div>
 
       </div>
 
       <div className="text-center py-4 text-xs border-t border-gray-600">
-        &copy; {new Date().getFullYear()} UniLounge. All rights reserved.
+        &copy; {new Date().getFullYear()} Lounge. All rights reserved.
       </div>
     </footer>
   );

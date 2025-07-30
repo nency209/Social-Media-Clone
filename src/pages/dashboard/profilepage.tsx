@@ -69,7 +69,7 @@ export const ProfilePage = () => {
       {/* Profile Header */}
       <div className="flex items-center gap-4 mb-6">
         <img
-          src={profileData.avatar || `https://i.pravatar.cc/150?u=${uid}`}
+          src={`/public/user.png`}
           className="w-20 h-20 rounded-full border-2 border-[var(--Louge-color)]"
           alt="avatar"
         />

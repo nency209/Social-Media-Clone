@@ -1,18 +1,20 @@
+import { Link } from "react-router";
 
 
 
 export const Home = () => {
 
-    const features: string[] = [
-    "Post your moments",
-    "Follow friends and creators",
-    "Real-time chat",
-    "Live event discussions",
-    "React with likes & comments",
-    "Join groups & communities",
-    "Explore trending content",
-    "Build your personal brand",
-  ];
+   const features: string[] = [
+  "Pulse your thoughts & photos",
+  "Vibe with friends and creators",
+  "Zync through real-time chat",
+  "Join live moments & discussions",
+  "React with likes, shares & comments",
+  "Create or join interest-based Spaces",
+  "Explore trending posts & voices",
+  "Build your digital identity on Zynkly",
+];
+
 
   interface WorkType {
     title: string;
@@ -20,43 +22,43 @@ export const Home = () => {
   }
 
   const Works: WorkType[] = [
-    {
-      title: "Post",
-      desc: "Share your thoughts, photos, and moments with your community instantly.",
-    },
-    {
-      title: "Connect",
-      desc: "Follow your friends, meet new people, and grow your circle.",
-    },
-    {
-      title: "Chat",
-      desc: "Start real-time conversations with individuals or groups.",
-    },
-    {
-      title: "Discover",
-      desc: "Explore trending posts, hashtags, and creators in your niche.",
-    },
-    {
-      title: "Engage",
-      desc: "Like, comment, and interact with content that matters to you.",
-    },
-    {
-      title: "Groups",
-      desc: "Join or create interest-based communities and lounges.",
-    },
-    {
-      title: "Events",
-      desc: "Participate in digital meetups, discussions, and events.",
-    },
-  ];
+  {
+    title: "Pulse",
+    desc: "Broadcast your moments through posts, images, or thoughts and stay at the heartbeat of Zynkly.",
+  },
+  {
+    title: "Vibe",
+    desc: "Connect and vibe with friends, creators, and like-minded explorers in your digital space.",
+  },
+  {
+    title: "Zync",
+    desc: "Experience seamless real-time chats with individuals or create buzzing group conversations.",
+  },
+  {
+    title: "Explore",
+    desc: "Dive into curated content, rising trends, and unique voices across the Zynkly universe.",
+  },
+  {
+    title: "React",
+    desc: "Like, comment, share, and spark conversations that matter — your engagement drives the community.",
+  },
+  {
+    title: "Spaces",
+    desc: "Create or join interactive lounges and interest-based zones where your passions thrive.",
+  },
+  {
+    title: "Moments",
+    desc: "Celebrate and engage in live events, virtual meetups, or spontaneous drops within your network.",
+  }
+]
 
   
   return (
     <>
     
-      <div className="bg-gradient-to-r from-[#580A55] to-[#020202] text-white min-h-screen">
+   <div className="bg-gradient-to-r from-[#580A55] to-[#020202] text-white min-h-screen scroll-smooth">
         {/* Hero Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-2 p-16">
+        <section id="Home" className="grid grid-cols-2 lg:grid-cols-2 p-16">
           <div className="space-y-6">
             <h1 className="font-semibold text-5xl">Your Digital Social Lounge</h1>
             <p className="text-lg">
@@ -64,17 +66,17 @@ export const Home = () => {
               Welcome to Uni<span className="text-[var(--Louge-color)]">Lounge</span> — where connection meets creativity.
             </p>
             <button className="text-[var(--Louge-color)] bg-white px-6 py-2 rounded-full">
-              Get Started
+             <Link to={'/signup'}> Get Started</Link>
             </button>
           </div>
 
           <div className="flex justify-center items-center mt-10 lg:mt-0">
-            <img src="/unilounge2 2.png" className="max-w-xs object-contain" />
+            <img src="/public/ChatGPT Image Jul 30, 2025, 10_46_48 AM.png"  className="max-w-xs object-contain" />
           </div>
-        </div>
+        </section>
 
         {/* How it Works */}
-        <div className="relative bg-gradient-to-r from-[#580A55] to-[#020202] py-16 px-8 overflow-hidden">
+        <section id="explore" className="relative bg-gradient-to-r from-[#580A55] to-[#020202] py-16 px-8 overflow-hidden">
           {[...Array(35)].map((_, i) => (
             <div
               key={i}
@@ -108,10 +110,10 @@ export const Home = () => {
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* Features Grid */}
-        <div className="relative bg-gradient-to-r from-[#580A55] to-[#020202] py-16 px-8">
+    
+        <section id="features" className="relative bg-gradient-to-r from-[#580A55] to-[#020202] py-16 px-8">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
@@ -144,19 +146,19 @@ export const Home = () => {
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
         {/* Final CTA */}
-        <div className="py-16 text-center bg-gradient-to-r from-[#580A55] to-[#020202]">
+        <section id="contact" className="py-16 text-center bg-gradient-to-r from-[#580A55] to-[#020202]">
           <h2 className="text-2xl md:text-3xl font-semibold px-4">
             Ready to build your social identity?
             <br />
             Join <span className="text-[var(--Louge-color)]">UniLounge</span> today.
           </h2>
           <button className="mt-6 bg-white text-[var(--Louge-color)] px-6 py-2 rounded-full font-medium">
-            Create Account
+             <Link to={'/signup'}>Create Account</Link>
           </button>
-        </div>
+        </section>
       </div>
       
     </>
