@@ -29,7 +29,7 @@ UniLounge is a modern social media clone built with **React**, **Redux Toolkit**
    npm install
    npm run dev
 
-   ## 📝 License
+ 
 
 
 
